@@ -11,11 +11,18 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
+  "devDependencies": {
+    "prettier": "2.3.2",
+    "lint-staged": "^11.0.0",
+    "husky": "^7.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "format": "prettier --write \"src/**/*.{jsx,tsx,ts,js,vue,scss,css,md,json}\""
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "lint-staged": {
+    "*.{jsx,tsx,ts,js,vue,scss,css,md,json}": "prettier --write"
   }
 }

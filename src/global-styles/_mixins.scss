@@ -1,0 +1,28 @@
+@mixin basic-text-input {
+  margin: 12px 0 8px;
+  padding: 11px 16px;
+  border: 1px #e0e0e0 solid;
+  border-radius: 8px;
+  line-height: 120%;
+  font-size: 14px;
+  color: $primary-text-color;
+  font-family: $primary-font-family;
+
+  &::placeholder {
+    color: #e0e0e0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &--incorrect {
+    color: rgba($primary-incorrect-color, 0.4);
+    border-color: $primary-incorrect-color;
+  }
+
+  &--incorrect::placeholder {
+    color: rgba($primary-incorrect-color, 0.4);
+    border-color: $primary-incorrect-color;
+  }
+}

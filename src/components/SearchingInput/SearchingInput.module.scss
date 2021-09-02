@@ -1,0 +1,35 @@
+@import '/src/global-styles/_index.scss';
+
+.searchingInput {
+  position: relative;
+  height: 44px;
+  max-width: 300px;
+  width: 100%;
+  margin: 8px 0;
+
+  &__searcher {
+    @include medium-text;
+    height: 100%;
+    width: 100%;
+    padding: 0 60px 0 20px;
+    border: 1px $primary-text-color solid;
+    border-radius: 12px;
+
+    &::placeholder {
+      color: $primary-text-color;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__icon {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 28px;
+    color: $primary-color;
+    cursor: pointer;
+  }
+}

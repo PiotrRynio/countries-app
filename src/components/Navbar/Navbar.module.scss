@@ -25,9 +25,10 @@
   }
 
   &__logo {
-    height: 74px;
+    height: 50px;
     width: 222px;
-    padding: 12px 50px 12px 0;
+    margin: 12px 0 12px 0;
+    padding: 0 50px 0 0;
   }
 
   &__optionsContainer {
@@ -49,7 +50,7 @@
     cursor: pointer;
   }
 
-  &__button--activated {
+  &__button--selected {
     background-color: $primary-color;
     color: $opposite-primary-color;
   }

@@ -1,0 +1,66 @@
+@import '/src/global-styles/_index.scss';
+
+.navbar {
+  $stripe-height: 20px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: $min-navbar-height;
+  width: 100vw;
+  flex-flow: column nowrap;
+  align-items: center;
+  background: white;
+
+  &__container {
+    display: flex;
+    min-height: $min-navbar-height - $stripe-height;
+    width: 100%;
+    max-width: 1040px;
+    padding: 0 $app-margin;
+    flex-grow: 1;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 74px;
+    width: 222px;
+    padding: 12px 50px 12px 0;
+  }
+
+  &__optionsContainer {
+    display: flex;
+    align-self: flex-end;
+  }
+
+  &__button {
+    display: block;
+    padding: 8px 16px;
+    border: solid 1px $primary-color;
+    border-bottom: none 0;
+    line-height: 100%;
+    background-color: $secondary-color;
+    color: $opposite-secondary-color;
+    font-family: $primary-font-family;
+    font-size: $regular-font-size;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__button--activated {
+    background-color: $primary-color;
+    color: $opposite-primary-color;
+  }
+
+  &__button:hover {
+    background-color: $primary-color;
+  }
+
+  &__stripe {
+    height: $stripe-height;
+    width: 100%;
+    background: $primary-color;
+  }
+}

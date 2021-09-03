@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './CountryDetailsArticle.module.scss';
 
 const CountryDetailsArticle = ({ name, capital, currencies }) => {
-  console.log(currencies);
-
   return (
     <article className={styles.countryDetailsArticle}>
       <h3 className={styles.countryDetailsArticle__header}>{name}</h3>

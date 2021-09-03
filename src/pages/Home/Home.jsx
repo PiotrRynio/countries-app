@@ -3,10 +3,10 @@ import { errorCodes, useCountriesNames } from '../../api/apiHooks';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import styles from './Home.module.scss';
 import CountriesList from '../../components/CountriesList/CountriesList';
-import { SearchedPhraseContext } from '../../context/SearchedPhraseContext';
+import { CountriesAppContext } from '../../context/CountriesAppContext';
 
 const Home = () => {
-  const { searchedPhrase } = useContext(SearchedPhraseContext);
+  const { searchedPhrase } = useContext(CountriesAppContext);
   const { isLoading, error, data } = useCountriesNames(searchedPhrase);
 
   let header = <SectionTitle>Countries list:</SectionTitle>;

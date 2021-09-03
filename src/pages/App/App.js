@@ -6,14 +6,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import CountryDetails from '../CountryDetails/CountryDetails';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { SearchedPhraseProvider } from '../../context/SearchedPhraseContext';
+import { CountriesAppProvider } from '../../context/CountriesAppContext';
 
 const App = () => {
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SearchedPhraseProvider>
+      <CountriesAppProvider>
         <Router>
           <div className={styles.app}>
             <Navbar />
@@ -30,7 +30,7 @@ const App = () => {
             </Switch>
           </div>
         </Router>
-      </SearchedPhraseProvider>
+      </CountriesAppProvider>
 
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

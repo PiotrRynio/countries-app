@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import styles from './SearchingInput.module.scss';
 import { GoSearch } from 'react-icons/go';
-import { SearchedPhraseContext } from '../../context/SearchedPhraseContext';
+import { CountriesAppContext } from '../../context/CountriesAppContext';
 
 const SearchingInput = () => {
-  const { searchedPhrase, setSearchedPhrase } = useContext(SearchedPhraseContext);
+  const { searchedPhrase, setSearchedPhrase } = useContext(CountriesAppContext);
   const [textInput, setTextInput] = useState(searchedPhrase);
 
   const handleChange = (event) => {

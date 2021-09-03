@@ -28,15 +28,11 @@ export const useCountryDetails = (name) =>
     );
 
     if (!response.ok) {
+      const errorResponse = await response.json();
+      if (errorResponse.status === 404) throw new Error(errorCodes.NOT_FOUND);
       throw new Error(errorCodes.NETWORK_ERROR);
     }
 
-    const countries = await response.json();
-    const country = countries[0];
-
-    if (!country) {
-      throw new Error(errorCodes.NOT_FOUND);
-    }
-
-    return country;
+    const countries = response.json();
+    return countries[0];
   });

@@ -5,3 +5,13 @@
   font-weight: $regular-font-weight;
   color: $primary-text-color;
 }
+
+@mixin page {
+  position: relative;
+  max-width: 460px;
+  margin: 32px auto;
+}
+
+@mixin sectionBodyMargin {
+  margin-top: 32px;
+}

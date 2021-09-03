@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Home from '../Home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import CountryDetails from '../CountryDetails/CountryDetails';
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -16,6 +17,9 @@ const App = () => {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route>
+              <CountryDetails />
             </Route>
           </Switch>
         </div>

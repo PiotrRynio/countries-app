@@ -7,12 +7,12 @@ import CountriesList from '../../components/CountriesList/CountriesList';
 const Home = () => {
   const { isLoading, error, data } = useCountriesNames('united');
 
-  let title = <SectionTitle>Countries list:</SectionTitle>;
+  let header = <SectionTitle>Countries list:</SectionTitle>;
 
-  if (isLoading) title = <SectionTitle isAlert={true}>Loading...</SectionTitle>;
+  if (isLoading) header = <SectionTitle isAlert={true}>Loading...</SectionTitle>;
 
   if (error) {
-    title =
+    header =
       error.message === errorCodes.NOT_FOUND ? (
         <SectionTitle isAlert={true}>Not found countries matching given search input</SectionTitle>
       ) : (
@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <section className={styles.home}>
-      {title}
+      {header}
       <article className={styles.home__body}>
         <CountriesList countriesData={data} />
       </article>

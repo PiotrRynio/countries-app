@@ -1,0 +1,23 @@
+@import '/src/global-styles/_index.scss';
+
+.sectionTitle {
+  width: 175px;
+  text-align: left;
+  color: $primary-text-color;
+
+  &__text {
+    font-size: 24px;
+    font-family: $primary-font-family;
+    font-weight: $light-font-weight;
+  }
+}
+@media (min-width: $sm-screen-width) {
+  .sectionTitle {
+    width: 100%;
+    text-align: center;
+
+    &__text {
+      font-size: 32px;
+    }
+  }
+}

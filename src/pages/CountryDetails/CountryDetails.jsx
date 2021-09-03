@@ -3,9 +3,12 @@ import { useCountryDetails } from '../../api/apiHooks';
 import styles from './CountryDetails.module.scss';
 import CountryDetailsArticle from './CountryDetailsArticle';
 import CountryDetailsHeader from './CountryDetailsHeader';
+import { useParams } from 'react-router-dom';
 
 const CountryDetails = () => {
-  const { isLoading, error, data } = useCountryDetails('Antarctica');
+  const { countryName } = useParams();
+
+  const { isLoading, error, data } = useCountryDetails(countryName);
 
   return (
     <section className={styles.countryDetails}>
@@ -16,9 +19,7 @@ const CountryDetails = () => {
             name={data.name}
             capital={data.capital}
             currencies={data.currencies}
-          >
-            {' '}
-          </CountryDetailsArticle>
+          ></CountryDetailsArticle>
         ) : (
           ''
         )}

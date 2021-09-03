@@ -18,8 +18,11 @@ const App = () => {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route>
+            <Route path="/countries/:countryName">
               <CountryDetails />
+            </Route>
+            <Route path="/">
+              <Home />
             </Route>
           </Switch>
         </div>

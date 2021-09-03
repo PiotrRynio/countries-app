@@ -9,7 +9,9 @@ export const errorCodes = {
 
 export const useCountriesNames = (search) =>
   useQuery(['countries', search], async () => {
-    const response = await fetch(`${API_URL}/name/${search}?fields=name`);
+    const allCountriesPath = `${API_URL}/all?fields=name`;
+    const searchedCountriesPath = `${API_URL}/name/${search.trim()}?fields=name`;
+    const response = await fetch(search.trim() !== '' ? searchedCountriesPath : allCountriesPath);
 
     if (!response.ok) {
       const errorResponse = await response.json();

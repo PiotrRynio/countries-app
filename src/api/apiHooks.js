@@ -32,7 +32,6 @@ export const useCountryDetails = (name) =>
       if (errorResponse.status === 404) throw new Error(errorCodes.NOT_FOUND);
       throw new Error(errorCodes.NETWORK_ERROR);
     }
-
-    const countries = response.json();
+    const countries = await response.json();
     return countries[0];
   });

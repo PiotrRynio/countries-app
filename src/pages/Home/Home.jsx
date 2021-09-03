@@ -1,6 +1,7 @@
 import React from 'react';
 import { errorCodes, useCountriesNames } from '../../api/apiHooks';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
+import styles from './Home.module.scss';
 
 const Navbar = () => {
   const { isLoading, error, data } = useCountriesNames('united');
@@ -14,10 +15,10 @@ const Navbar = () => {
   }
 
   return (
-    <div>
+    <section className={styles.home}>
       <SectionTitle>Countries list:</SectionTitle>
-      {data[0].name}
-    </div>
+      <section className={styles.home__body}>{data[0].name}</section>
+    </section>
   );
 };
 

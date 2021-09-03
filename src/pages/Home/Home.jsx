@@ -12,13 +12,12 @@ const Home = () => {
   if (isLoading) title = <SectionTitle isAlert={true}>Loading...</SectionTitle>;
 
   if (error) {
-    if (error.message === errorCodes.NOT_FOUND) {
-      title = (
+    title =
+      error.message === errorCodes.NOT_FOUND ? (
         <SectionTitle isAlert={true}>Not found countries matching given search input</SectionTitle>
+      ) : (
+        <SectionTitle isAlert={true}>api server error</SectionTitle>
       );
-    }
-
-    title = <SectionTitle isAlert={true}>api server error</SectionTitle>;
   }
 
   return (

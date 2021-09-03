@@ -1,17 +1,23 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './SearchingInput.module.scss';
 import { GoSearch } from 'react-icons/go';
-import { CountriesAppContext } from '../../context/CountriesAppContext';
+import { useSearchParams } from '../../hooks/useSearchParams';
 
 const SearchingInput = () => {
-  const { searchedPhrase, setSearchedPhrase } = useContext(CountriesAppContext);
-  const [textInput, setTextInput] = useState(searchedPhrase);
+  const { search, setSearchParams } = useSearchParams();
+
+  const [textInput, setTextInput] = useState(search);
 
   const handleChange = (event) => {
     setTextInput(event.target.value);
   };
+
   const onClickButton = () => {
-    setSearchedPhrase(textInput);
+    const newValues = {
+      page: '1',
+      search: textInput,
+    };
+    setSearchParams(newValues);
   };
 
   return (

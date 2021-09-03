@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { errorCodes, useCountriesNames } from '../../api/apiHooks';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import styles from './Home.module.scss';
 import CountriesList from '../../components/CountriesList/CountriesList';
-import { CountriesAppContext } from '../../context/CountriesAppContext';
+import { useSearchParams } from '../../hooks/useSearchParams';
 
 const Home = () => {
-  const { searchedPhrase } = useContext(CountriesAppContext);
-  const { isLoading, error, data } = useCountriesNames(searchedPhrase);
+  const { search } = useSearchParams();
+  const { isLoading, error, data } = useCountriesNames(search);
 
   let header = <SectionTitle>Countries list:</SectionTitle>;
 

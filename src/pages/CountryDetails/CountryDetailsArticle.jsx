@@ -22,18 +22,15 @@ const CountryDetailsArticle = ({ name, capital, currencies }) => {
         {currencies.map((currency) => (
           <div className={styles.countryDetailsArticle__currencySection} key={currency.name}>
             <span className={styles.countryDetailsArticle__detailRow}>
-              {' '}
-              Currency code:{' '}
+              Currency code:
               <span className={styles.countryDetailsArticle__detail}>{currency.code}</span>
             </span>
             <span className={styles.countryDetailsArticle__detailRow}>
-              {' '}
-              Currency name:{' '}
+              Currency name:
               <span className={styles.countryDetailsArticle__detail}>{currency.name}</span>
             </span>
             <span className={styles.countryDetailsArticle__detailRow}>
-              {' '}
-              Currency symbole:{' '}
+              Currency symbole:
               <span className={styles.countryDetailsArticle__detail}>{currency.symbol}</span>{' '}
             </span>
           </div>

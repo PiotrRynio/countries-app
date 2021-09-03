@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { errorCodes, useCountriesNames } from '../../api/apiHooks';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import styles from './Home.module.scss';
 import CountriesList from '../../components/CountriesList/CountriesList';
+import { SearchedPhraseContext } from '../../context/SearchedPhraseContext';
 
 const Home = () => {
-  const { isLoading, error, data } = useCountriesNames('united');
+  const { searchedPhrase } = useContext(SearchedPhraseContext);
+  const { isLoading, error, data } = useCountriesNames(searchedPhrase);
 
   let header = <SectionTitle>Countries list:</SectionTitle>;
 

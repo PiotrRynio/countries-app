@@ -5,28 +5,34 @@ import Home from '../Home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import CountryDetails from '../CountryDetails/CountryDetails';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import { SearchedPhraseProvider } from '../../context/SearchedPhraseContext';
 
 const App = () => {
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <div className={styles.app}>
-          <Navbar />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/countries/:countryName">
-              <CountryDetails />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+      <SearchedPhraseProvider>
+        <Router>
+          <div className={styles.app}>
+            <Navbar />
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/countries/:countryName">
+                <CountryDetails />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </SearchedPhraseProvider>
+
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 };

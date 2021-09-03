@@ -16,20 +16,27 @@
     border-radius: 12px;
 
     &::placeholder {
-      color: $primary-text-color;
+      color: rgba($primary-text-color, 0.5);
     }
     &:focus {
       outline: none;
     }
   }
 
-  &__icon {
+  &__searchButton {
     display: block;
     position: absolute;
-    top: 8px;
+    top: 0;
+    bottom: 0;
     right: 16px;
+    padding: 2px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__icon {
     font-size: 28px;
     color: $primary-color;
-    cursor: pointer;
   }
 }

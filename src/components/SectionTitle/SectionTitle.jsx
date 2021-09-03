@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './SectionTitle.module.scss';
 import cn from 'classnames';
 
-const SearchingInput = ({ isAlert = false, children }) => {
+const SectionTitle = ({ isAlert = false, children }) => {
   return (
     <header className={styles.sectionTitle}>
       <h2
@@ -17,4 +17,4 @@ const SearchingInput = ({ isAlert = false, children }) => {
   );
 };
 
-export default SearchingInput;
+export default SectionTitle;

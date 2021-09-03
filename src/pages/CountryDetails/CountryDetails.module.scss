@@ -6,32 +6,4 @@
   &__body {
     @include sectionBodyMargin;
   }
-
-  &__navContainer {
-    width: 100%;
-    padding: 32px 0 32px;
-    text-align: left;
-  }
-
-  &__goHomeButton {
-    @include regular-text;
-
-    padding: 12px 24px;
-    border: 1px solid $primary-color;
-    background-color: $opposite-primary-color;
-    color: $primary-color;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  &__goHomeButton:hover {
-    background-color: $primary-color;
-    color: $opposite-primary-color;
-  }
-
-  @media (min-width: $sm-screen-width) {
-    &__navContainer {
-      text-align: center;
-    }
-  }
 }

@@ -1,0 +1,43 @@
+@import '/src/global-styles/_index.scss';
+
+.countryDetailsArticle {
+  padding-bottom: 32px;
+  border-bottom: 1px solid $primary-color;
+
+  &__header {
+    @include regular-text;
+    padding-bottom: 8px;
+    font-weight: $bold-font-weight;
+    font-size: 32px;
+    color: $primary-color;
+  }
+
+  &__detailRow {
+    @include regular-text;
+    display: flex;
+    padding: 4px 0;
+    justify-content: space-between;
+  }
+
+  &__detail {
+    font-weight: $bold-font-weight;
+    color: $primary-color;
+  }
+
+  &__noDetail {
+    font-weight: $bold-font-weight;
+  }
+
+  &__currenciesSection {
+    padding: 16px 16px 0;
+  }
+
+  &__currencySection {
+    margin: 8px 0 8px 16px;
+    border-bottom: 1px solid $primary-color;
+  }
+
+  &__currencySection:last-child {
+    border-bottom: none;
+  }
+}

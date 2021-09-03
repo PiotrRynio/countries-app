@@ -7,9 +7,12 @@ import { NavLink } from 'react-router-dom';
 const CountriesList = ({ countriesData = [] }) => {
   if (!countriesData) return;
 
+  const sortingFunction = (a, b) =>
+    ('' + a.name).localeCompare(b.name, 'en', { sensitivity: 'base' });
+
   return (
     <ul className={styles.countriesList}>
-      {countriesData.map(({ name }) => (
+      {countriesData.sort(sortingFunction).map(({ name }) => (
         <NavLink to={`/countries/${name}`} key={name} className={styles.countriesList__item}>
           <h3 className={styles.countriesList__itemTitle}>{name}</h3>
           <BsChevronRight className={styles.countriesList__arrow} />

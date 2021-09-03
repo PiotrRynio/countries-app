@@ -6,12 +6,14 @@ import styles from './Home.module.scss';
 const Navbar = () => {
   const { isLoading, error, data } = useCountriesNames('united');
 
-  if (isLoading) return <SectionTitle>'Loading...'</SectionTitle>;
+  if (isLoading) return <SectionTitle isAlert={true}>'Loading...'</SectionTitle>;
 
   if (error) {
     if (error.message === errorCodes.NOT_FOUND)
-      return <SectionTitle>'countries not found - modify the search field'</SectionTitle>;
-    return <SectionTitle>'api server error'</SectionTitle>;
+      return (
+        <SectionTitle isAlert={true}>'countries not found - modify the search field'</SectionTitle>
+      );
+    return <SectionTitle isAlert={true}>'api server error'</SectionTitle>;
   }
 
   return (

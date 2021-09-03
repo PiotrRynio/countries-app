@@ -10,7 +10,12 @@
     font-family: $primary-font-family;
     font-weight: $light-font-weight;
   }
+
+  &__text--alert {
+    color: $alert-text-color;
+  }
 }
+
 @media (min-width: $sm-screen-width) {
   .sectionTitle {
     width: 100%;

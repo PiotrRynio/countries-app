@@ -1,10 +1,11 @@
 @import '/src/global-styles/_index.scss';
 
 .home {
+  position: relative;
   max-width: 460px;
   margin: 32px auto;
 
   &__body {
-    padding-top: 32px;
+    margin-top: 32px;
   }
 }

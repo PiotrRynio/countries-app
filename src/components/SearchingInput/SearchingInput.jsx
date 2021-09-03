@@ -27,7 +27,7 @@ const SearchingInput = () => {
         className={styles.searchingInput__searcher}
         value={textInput}
         onChange={handleChange}
-        placeholder={`Wyszukaj kraj...`}
+        placeholder={`Search country...`}
       />
       <button className={styles.searchingInput__searchButton} onClick={onClickButton}>
         <GoSearch className={styles.searchingInput__icon} />

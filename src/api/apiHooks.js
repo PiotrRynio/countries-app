@@ -12,6 +12,8 @@ export const useCountriesNames = (search) =>
     const response = await fetch(`${API_URL}/name/${search}?fields=name`);
 
     if (!response.ok) {
+      const errorResponse = await response.json();
+      if (errorResponse.status === 404) throw new Error(errorCodes.NOT_FOUND);
       throw new Error(errorCodes.NETWORK_ERROR);
     }
 

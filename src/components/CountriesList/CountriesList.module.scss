@@ -1,0 +1,30 @@
+@import '/src/global-styles/_index.scss';
+
+.countriesList {
+  &__item {
+    @include regular-text;
+
+    display: flex;
+    height: 50px;
+    width: 100%;
+    border-bottom: #e0e0e0 solid 1px;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  &__item:hover {
+    color: $primary-color;
+    background-color: rgba($primary-color, 0.1);
+  }
+
+  &__itemTitle {
+    font-weight: $bold-font-weight;
+  }
+
+  &__arrow {
+    display: block;
+    width: 12px;
+  }
+}

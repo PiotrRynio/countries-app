@@ -16,21 +16,18 @@ const CountryDetailsHeader = ({ isLoading, error }) => {
   if (isLoading) {
     return (
       <>
-        {' '}
-        <SectionTitle isAlert={true}>Loading...</SectionTitle> {goHomeButton}{' '}
+        <SectionTitle isAlert={true}>Loading...</SectionTitle>
+        {goHomeButton}
       </>
     );
   }
 
   if (error) {
-    return error.message === errorCodes.NOT_FOUND ? (
+    return (
       <>
-        <SectionTitle isAlert={true}>No country found :( </SectionTitle>
-        {goHomeButton}
-      </>
-    ) : (
-      <>
-        <SectionTitle isAlert={true}>api server error :(</SectionTitle>
+        <SectionTitle isAlert={true}>
+          {error.message === errorCodes.NOT_FOUND ? `No country found :(` : `api server error :(`}
+        </SectionTitle>
         {goHomeButton}
       </>
     );

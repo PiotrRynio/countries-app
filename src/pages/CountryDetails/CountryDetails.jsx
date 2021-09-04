@@ -14,14 +14,12 @@ const CountryDetails = () => {
     <section className={styles.countryDetails}>
       <CountryDetailsHeader isLoading={isLoading} error={error} />
       <article className={styles.countryDetails__body}>
-        {data ? (
+        {data && (
           <CountryDetailsArticle
             name={data.name}
             capital={data.capital}
             currencies={data.currencies}
-          ></CountryDetailsArticle>
-        ) : (
-          ''
+          />
         )}
       </article>
     </section>

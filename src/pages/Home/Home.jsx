@@ -10,16 +10,15 @@ const Home = () => {
   const { isLoading, error, data } = useCountriesNames(search);
 
   let header = <SectionTitle>Countries list:</SectionTitle>;
-
-  if (isLoading) header = <SectionTitle isAlert={true}>Loading...</SectionTitle>;
-
+  if (isLoading) {
+    header = <SectionTitle isAlert={true}>Loading...</SectionTitle>;
+  }
   if (error) {
-    header =
-      error.message === errorCodes.NOT_FOUND ? (
-        <SectionTitle isAlert={true}>No countries found!</SectionTitle>
-      ) : (
-        <SectionTitle isAlert={true}>api server error</SectionTitle>
-      );
+    header = (
+      <SectionTitle isAlert={true}>
+        {error.message === errorCodes.NOT_FOUND ? `No countries found!` : `api server error`}
+      </SectionTitle>
+    );
   }
 
   return (

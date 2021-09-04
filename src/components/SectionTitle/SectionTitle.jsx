@@ -7,6 +7,7 @@ const SectionTitle = ({ isAlert = false, children }) => {
   return (
     <header className={styles.sectionTitle}>
       <h2
+        role="heading"
         className={cn(styles.sectionTitle__text, {
           [styles['sectionTitle__text--alert']]: isAlert,
         })}

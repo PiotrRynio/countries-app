@@ -14,10 +14,6 @@ const CountryDetailsArticle = ({ name, capital, currencies }) => {
         )}
       </h4>
 
-      <h4 className={styles.countryDetailsArticle__detailRow}>
-        {currencies.length === 1 ? 'Currency:' : 'Currencies:'}
-      </h4>
-
       <section className={styles.countryDetailsArticle__currenciesSection}>
         {currencies.map((currency) => (
           <div className={styles.countryDetailsArticle__currencySection} key={currency.name}>

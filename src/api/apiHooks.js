@@ -13,12 +13,7 @@ export const useCountriesNames = (search) =>
     const searchedCountriesPath = `${API_URL}/name/${search.trim()}?fields=name`;
     const response = await fetch(search.trim() !== '' ? searchedCountriesPath : allCountriesPath);
 
-    if (!response.ok) {
-      const errorResponse = await response.json();
-      if (errorResponse.status === 404) throw new Error(errorCodes.NOT_FOUND);
-      throw new Error(errorCodes.NETWORK_ERROR);
-    }
-
+    await validateResponse(response);
     return response.json();
   });
 
@@ -29,11 +24,17 @@ export const useCountryDetails = (name) =>
       `${API_URL}/name/${uriName}?fullText=true&fields=name;capital;currencies`,
     );
 
-    if (!response.ok) {
-      const errorResponse = await response.json();
-      if (errorResponse.status === 404) throw new Error(errorCodes.NOT_FOUND);
-      throw new Error(errorCodes.NETWORK_ERROR);
-    }
+    await validateResponse(response);
     const countries = await response.json();
     return countries[0];
   });
+
+const validateResponse = async (response) => {
+  if (!response.ok) {
+    const errorResponse = await response.json();
+    if (errorResponse.status === 404) {
+      throw new Error(errorCodes.NOT_FOUND);
+    }
+    throw new Error(errorCodes.NETWORK_ERROR);
+  }
+};

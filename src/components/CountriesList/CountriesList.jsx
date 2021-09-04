@@ -13,8 +13,7 @@ const CountriesList = ({ countriesData = [] }) => {
 
   const pageCount = countriesData.length / 20;
 
-  const sortingFunction = (a, b) =>
-    ('' + a.name).localeCompare(b.name, 'en', { sensitivity: 'base' });
+  const sortByName = (a, b) => ('' + a.name).localeCompare(b.name, 'en', { sensitivity: 'base' });
 
   const onPageChangeHandle = (selected) => setSearchParams({ page: selected });
 
@@ -22,7 +21,7 @@ const CountriesList = ({ countriesData = [] }) => {
     <>
       <Paginate pageCount={pageCount} forcePage={page} onPageChange={onPageChangeHandle} />
       <ul className={styles.countriesList}>
-        {countriesData.sort(sortingFunction).map(({ name }) => (
+        {countriesData.sort(sortByName).map(({ name }) => (
           <NavLink to={`/countries/${name}`} key={name} className={styles.countriesList__item}>
             <h3 className={styles.countriesList__itemTitle}>{name}</h3>
             <BsChevronRight className={styles.countriesList__arrow} />

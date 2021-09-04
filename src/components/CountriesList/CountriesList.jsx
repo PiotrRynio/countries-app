@@ -11,9 +11,14 @@ const CountriesList = ({ countriesData = [] }) => {
 
   if (!countriesData) return;
 
-  const pageCount = countriesData.length / 20;
+  const pageCount = Math.ceil(countriesData.length / 20);
 
   const sortByName = (a, b) => ('' + a.name).localeCompare(b.name, 'en', { sensitivity: 'base' });
+  const visibleCountriesFilter = (countryData, index) => {
+    const minIndex = (page - 1) * 20;
+    const maxIndex = page * 20 - 1;
+    if (index >= minIndex && index <= maxIndex) return countryData;
+  };
 
   const onPageChangeHandle = (selected) => setSearchParams({ page: selected });
 
@@ -21,12 +26,15 @@ const CountriesList = ({ countriesData = [] }) => {
     <>
       <Paginate pageCount={pageCount} forcePage={page} onPageChange={onPageChangeHandle} />
       <ul className={styles.countriesList}>
-        {countriesData.sort(sortByName).map(({ name }) => (
-          <NavLink to={`/countries/${name}`} key={name} className={styles.countriesList__item}>
-            <h3 className={styles.countriesList__itemTitle}>{name}</h3>
-            <BsChevronRight className={styles.countriesList__arrow} />
-          </NavLink>
-        ))}
+        {countriesData
+          .sort(sortByName)
+          .filter(visibleCountriesFilter)
+          .map(({ name }) => (
+            <NavLink to={`/countries/${name}`} key={name} className={styles.countriesList__item}>
+              <h3 className={styles.countriesList__itemTitle}>{name}</h3>
+              <BsChevronRight className={styles.countriesList__arrow} />
+            </NavLink>
+          ))}
       </ul>
     </>
   );

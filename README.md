@@ -38,13 +38,9 @@ about?**
 
 ###### Screens:
 
-[comment]: <> (![img.png]&#40;img.png&#41;)
+![img_1.png](readme-image/img_1.png)
 
-[comment]: <> (![img_1.png]&#40;img_1.png&#41;)
-
-[comment]: <> (![img_3.png]&#40;img_3.png&#41;)
-
-[comment]: <> (![img_4.png]&#40;img_4.png&#41;)
+![img_2.png](readme-image/img_2.png)
 
 ---
 
@@ -56,7 +52,7 @@ Running this project locally
 
 1. Clone this project locally.
 2. Run `yarn install` in your bash/command line.
-3. Run `npm start` in your bash/command line.
+3. Run `yarn start` in your bash/command line.
 4. Go to `http://localhost:3000/` in your browser (or other from your bash/command line info).
 
 Others:

@@ -8,6 +8,12 @@ describe('Paginate: ', () => {
     button: 0,
   });
 
+  test('if render "Paginate" component, then buttons are visible', () => {
+    render(<Paginate />);
+    const testedComponent = screen.queryByRole(/navigation/i);
+    expect(testedComponent).toBeInTheDocument();
+  });
+
   test('if props not set, then buttons are visible', () => {
     render(<Paginate />);
     const buttons = screen.queryAllByRole(/button/i);
@@ -66,17 +72,18 @@ describe('Paginate: ', () => {
       expect(paginateItem.parentElement).not.toHaveClass('active');
     });
 
-    test(`and if button wth number 1 was clicked, then call "onPageChange" function`, () => {
+    test(`and if button wth number 3 was clicked, then call "onPageChange" function with value of "3"`, () => {
       const onPageChangeMock = jest.fn();
       const testedComponent = (
         <Paginate forcePage={5} pageCount={20} onPageChange={onPageChangeMock} />
       );
       render(testedComponent);
-      const beingClickedPaginateItem = screen.getByText(/1/i);
+      const beingClickedPaginateItem = screen.getByText(/3/i);
 
       beingClickedPaginateItem.dispatchEvent(clickEvent);
 
       expect(onPageChangeMock).toBeCalled();
+      expect(onPageChangeMock).lastCalledWith(3);
     });
   });
 });

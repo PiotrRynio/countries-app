@@ -9,7 +9,7 @@ const Paginate = ({ pageCount = 1, forcePage = 1, onPageChange = (selected) => {
 
   return (
     Boolean(pageCount) && (
-      <nav className="paginate">
+      <nav className="paginate" role="navigation">
         <ReactPaginate
           previousLabel={'<'}
           nextLabel={'>'}

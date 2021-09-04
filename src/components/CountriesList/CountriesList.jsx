@@ -3,22 +3,33 @@ import React from 'react';
 import styles from './CountriesList.module.scss';
 import { BsChevronRight } from 'react-icons/all';
 import { NavLink } from 'react-router-dom';
+import Paginate from '../Paginate/Paginate';
+import { useSearchParams } from '../../hooks/useSearchParams';
 
 const CountriesList = ({ countriesData = [] }) => {
+  const { page, setSearchParams } = useSearchParams();
+
   if (!countriesData) return;
+
+  const pageCount = countriesData.length / 20;
 
   const sortingFunction = (a, b) =>
     ('' + a.name).localeCompare(b.name, 'en', { sensitivity: 'base' });
 
+  const onPageChangeHandle = (selected) => setSearchParams({ page: selected });
+
   return (
-    <ul className={styles.countriesList}>
-      {countriesData.sort(sortingFunction).map(({ name }) => (
-        <NavLink to={`/countries/${name}`} key={name} className={styles.countriesList__item}>
-          <h3 className={styles.countriesList__itemTitle}>{name}</h3>
-          <BsChevronRight className={styles.countriesList__arrow} />
-        </NavLink>
-      ))}
-    </ul>
+    <>
+      <Paginate pageCount={pageCount} forcePage={page} onPageChange={onPageChangeHandle} />
+      <ul className={styles.countriesList}>
+        {countriesData.sort(sortingFunction).map(({ name }) => (
+          <NavLink to={`/countries/${name}`} key={name} className={styles.countriesList__item}>
+            <h3 className={styles.countriesList__itemTitle}>{name}</h3>
+            <BsChevronRight className={styles.countriesList__arrow} />
+          </NavLink>
+        ))}
+      </ul>
+    </>
   );
 };
 

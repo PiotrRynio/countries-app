@@ -8,7 +8,7 @@ const CountryDetailsHeader = ({ isLoading, error }) => {
   const goHomeButton = (
     <div className={styles.countryDetailsHeader__navContainer}>
       <NavLink to="/" className={styles.countryDetailsHeader__goHomeButton}>
-        go Home Page
+        Go to home page
       </NavLink>
     </div>
   );
@@ -25,7 +25,7 @@ const CountryDetailsHeader = ({ isLoading, error }) => {
   if (error) {
     return error.message === errorCodes.NOT_FOUND ? (
       <>
-        <SectionTitle isAlert={true}>Not found country :( </SectionTitle>
+        <SectionTitle isAlert={true}>No country found :( </SectionTitle>
         {goHomeButton}
       </>
     ) : (

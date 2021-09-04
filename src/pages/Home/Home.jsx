@@ -16,7 +16,7 @@ const Home = () => {
   if (error) {
     header =
       error.message === errorCodes.NOT_FOUND ? (
-        <SectionTitle isAlert={true}>Not found countries matching given search input</SectionTitle>
+        <SectionTitle isAlert={true}>No countries found!</SectionTitle>
       ) : (
         <SectionTitle isAlert={true}>api server error</SectionTitle>
       );

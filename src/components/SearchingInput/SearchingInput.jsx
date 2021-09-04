@@ -12,6 +12,12 @@ const SearchingInput = () => {
     setTextInput(event.target.value);
   };
 
+  const keyPress = ({ keyCode }) => {
+    if (keyCode === 13) {
+      onClickButton();
+    }
+  };
+
   const onClickButton = () => {
     const newValues = {
       page: '1',
@@ -28,6 +34,7 @@ const SearchingInput = () => {
         value={textInput}
         onChange={handleChange}
         placeholder={`Search country...`}
+        onKeyDown={keyPress}
       />
       <button className={styles.searchingInput__searchButton} onClick={onClickButton}>
         <GoSearch className={styles.searchingInput__icon} />

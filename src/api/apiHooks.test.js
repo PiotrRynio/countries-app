@@ -2,7 +2,7 @@ import { useCountriesNames } from './apiHooks';
 import { setupServer } from 'msw/node';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { renderHook } from '@testing-library/react-hooks';
-import { countriesNamesHandler } from '../mock/msw/handlers/countriesNames/countriesNamesHandler';
+import { countriesNamesHandlers } from '../mock/msw/handlers/countriesNames/countriesNamesHandlers';
 
 const createWrapper = () => {
   // ✅ creates a new QueryClient for each test
@@ -13,13 +13,13 @@ const createWrapper = () => {
 };
 
 describe('Api Hooks tests: ', () => {
+  const server = setupServer(...countriesNamesHandlers);
+
+  beforeAll(() => server.listen());
+  afterEach(() => server.resetHandlers());
+  afterAll(() => server.close());
+
   describe('useCountriesNames ', () => {
-    const server = setupServer(countriesNamesHandler.allCountriesNames);
-
-    beforeAll(() => server.listen());
-    afterEach(() => server.resetHandlers());
-    afterAll(() => server.close());
-
     test(`if you call hook, then fetching is loading`, async () => {
       const { result } = renderHook(() => useCountriesNames(), {
         wrapper: createWrapper(),

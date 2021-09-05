@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { countriesNamesHandlerResponses } from './countriesNamesHandlerResponses';
+import { allCountriesNamesHandlerResponses } from './allCountriesNamesHandlerResponses';
 
 const API_URL = 'https://restcountries.eu/rest/v2';
 
@@ -12,7 +12,7 @@ const allCountriesNamesHandler = rest.get(`${API_URL}/all`, (req, res, ctx) => {
     return res(ctx.status(404));
   }
 
-  return res(ctx.status(200), ctx.json(countriesNamesHandlerResponses));
+  return res(ctx.status(200), ctx.json(allCountriesNamesHandlerResponses));
 });
 
 export const countriesNamesHandlers = [allCountriesNamesHandler];

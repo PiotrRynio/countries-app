@@ -1,4 +1,4 @@
-export const countriesNamesHandlerResponses =
+export const allCountriesNamesHandlerResponses =
   // 20210905155652
   // https://restcountries.eu/rest/v2/all?fields=name
 

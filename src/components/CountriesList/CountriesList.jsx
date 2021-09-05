@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './CountriesList.module.scss';
-import { BsChevronRight } from 'react-icons/all';
+import { BsChevronRight } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 import Paginate from '../Paginate/Paginate';
 import { useSearchParams } from '../../hooks/useSearchParams';

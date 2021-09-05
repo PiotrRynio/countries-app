@@ -52,5 +52,25 @@ describe('Api Hooks tests: ', () => {
       expect(result.current.isLoadingError).toBe(false);
       expect(result.current.isSuccess).toBe(true);
     });
+
+    test('if you call hook with param, after waiting for data, then fetching data is finished wih success. ', async () => {
+      const { result, waitFor } = renderHook(() => useCountriesNames('poland'), {
+        wrapper: createWrapper(),
+      });
+
+      await waitFor(() => result.current.isSuccess);
+
+      expect(result.current.isSuccess).toBe(true);
+    });
+
+    test('if you call hook with param with special chars, after waiting for data, then fetching data is finished wih success. ', async () => {
+      const { result, waitFor } = renderHook(() => useCountriesNames('póLĄnD'), {
+        wrapper: createWrapper(),
+      });
+
+      await waitFor(() => result.current.isSuccess).catch((error) => {});
+
+      expect(result.current.isSuccess).toBe(true);
+    });
   });
 });

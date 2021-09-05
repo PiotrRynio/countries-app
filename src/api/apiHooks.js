@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+import { remove } from 'diacritics';
 
 const API_URL = 'https://restcountries.eu/rest/v2';
 
@@ -9,10 +10,12 @@ export const errorCodes = {
 
 export const useCountriesNames = (search = '') =>
   useQuery(['countries', search], async () => {
-    const allCountriesPath = `${API_URL}/all?fields=name`;
-    const searchedCountriesPath = `${API_URL}/name/${search.trim()}?fields=name`;
+    const normalizeText = remove(search.trim().toLowerCase());
 
-    const response = await fetch(search.trim() !== '' ? searchedCountriesPath : allCountriesPath);
+    const allCountriesPath = `${API_URL}/all?fields=name`;
+    const searchedCountriesPath = `${API_URL}/name/${normalizeText}?fields=name`;
+
+    const response = await fetch(normalizeText !== '' ? searchedCountriesPath : allCountriesPath);
 
     await validateResponse(response);
     return response.json();

@@ -7,10 +7,11 @@ export const errorCodes = {
   NOT_FOUND: 'NOT_FOUND',
 };
 
-export const useCountriesNames = (search) =>
+export const useCountriesNames = (search = '') =>
   useQuery(['countries', search], async () => {
     const allCountriesPath = `${API_URL}/all?fields=name`;
     const searchedCountriesPath = `${API_URL}/name/${search.trim()}?fields=name`;
+
     const response = await fetch(search.trim() !== '' ? searchedCountriesPath : allCountriesPath);
 
     await validateResponse(response);

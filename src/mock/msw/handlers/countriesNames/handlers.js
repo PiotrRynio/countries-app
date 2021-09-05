@@ -6,11 +6,11 @@ const API_URL = 'https://restcountries.eu/rest/v2';
 
 const allCountriesNamesHandler = rest.get(`${API_URL}/all`, (req, res, ctx) => {
   const fields = req.url.searchParams.get('fields');
-  if (fields !== 'name') {
-    return res(ctx.status(404));
+  if (fields === 'name') {
+    const handlerResponse = countriesNamesHandlersResponses.allCountriesNames;
+    return res(ctx.status(200), ctx.json(handlerResponse));
   }
-  const handlerResponse = countriesNamesHandlersResponses.allCountriesNames;
-  return res(ctx.status(200), ctx.json(handlerResponse));
+  return res(ctx.status(404));
 });
 
 const searchedCountriesNamesAndCountryDetailsHandler = rest.get(

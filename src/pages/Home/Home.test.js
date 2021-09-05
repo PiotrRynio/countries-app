@@ -10,7 +10,7 @@ describe('Home page: ', () => {
   afterEach(() => server.resetHandlers());
   afterAll(() => server.close());
 
-  test(`when country names are not fetched yet, then displays loading screens`, async () => {
+  test(`when country names are not fetched yet, then loading screen is displayed`, async () => {
     const { componentWithWrappers } = addTestWrappers({
       route: undefined,
       toBeWrappedComponent: <Home />,

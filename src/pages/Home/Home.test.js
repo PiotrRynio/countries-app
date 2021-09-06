@@ -35,4 +35,23 @@ describe('Home page: ', () => {
     const searchedText = /Countries list/i;
     expect(headerTitle).toHaveTextContent(searchedText);
   });
+
+  test(`when country names are fetched, then initial list of countries is displayed`, async () => {
+    const { componentWithWrappers } = addTestWrappers({
+      route: undefined,
+      toBeWrappedComponent: <Home />,
+    });
+    render(componentWithWrappers);
+
+    await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
+
+    const country1 = screen.queryByText(/Afghanistan/i);
+    const country2 = screen.queryByText(/Åland Islands/i);
+    const country3 = screen.queryByText(/Albania/i);
+    const country4 = screen.queryByText(/Algeria/i);
+    expect(country1).toBeInTheDocument();
+    expect(country2).toBeInTheDocument();
+    expect(country3).toBeInTheDocument();
+    expect(country4).toBeInTheDocument();
+  });
 });

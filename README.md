@@ -7,13 +7,13 @@
 ## Overview
 
 **Countries App** is a web application created in React framework. User can use searcher to find any country in the
-world to get to know with basic information about it (**country name, capital, currency data**). Countries data are being
-downloaded from [external API](https://restcountries.eu/). **Application gets from API only those data which it actually
-needs**. The application uses **memoization of API requests** - it does not send requests for data which it downloaded
-already. I did it by use of react-query library. **Pagination** is implemented - one page contains only 20 countries; if
-number of countries would equal over 20 then next pages would appear. Application is **fully responsive** - looks well on
-both mobile and desktop displays. I coded styles using **Mobile First** principle. **Which country would you like to know
-about?**
+world to get to know with basic information about it (**country name, capital, currency data**). Countries data are
+being downloaded from [external API](https://restcountries.eu/). **Application gets from API only those data which it
+actually needs**. The application uses **memoization of API requests** - it does not send requests for data which it
+downloaded already. I did it by use of react-query library. **Pagination** is implemented - one page contains only 20
+countries; if number of countries would equal over 20 then next pages would appear. Application is **fully
+responsive** - looks well on both mobile and desktop displays. I coded styles using **Mobile First** principle. In this
+project you can find a few **unit and integration tests** too. **Which country would you like to know about?**
 
 **API URL:** [https://restcountries.eu/](https://restcountries.eu/)
 
@@ -27,6 +27,10 @@ about?**
 - Husky (pre-commit)
 - lint-staged
 - other react libraries (for example: react-query, query-string, react-paginate, react-icons, dart-sass, classnames)
+- react testing library
+- jest-dom testing library
+- MSW - Mock Service Worker (API queries mocking)
+- other testing libraries (for example: history)
 - SCSS
 - CSS Modules (with SCSS)
 - BEM methodology
